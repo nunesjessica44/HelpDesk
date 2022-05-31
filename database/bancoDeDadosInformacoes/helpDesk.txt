@@ -1,0 +1,60 @@
+create database helpdesk;
+
+use helpdesk;
+
+create table APIetec(
+	idRM int PRIMARY KEY AUTO_INCREMENT,
+    rm varchar(8),
+    emailEtec varchar(50), 
+    senha varchar (20),
+    nome varchar (40),
+    cargo varchar (12),
+    telefone varchar(12)
+);
+
+create table chamado (
+	idChamado int primary key auto_increment,
+    catChamados varchar(100)
+);
+
+create table formulario (
+	rm int primary key auto_increment,
+    email varchar(50),
+	ocorrencias varchar(150) ,
+    turma varchar(30),
+    datahora DATETIME,
+    status varchar(40)
+);
+
+create table qrcode (
+	idMaquina int primary key auto_increment,
+    laboratorio int,
+    computador int
+);
+
+insert into APIetec values (null, 2101693, "matheus.oliveira933@etec.sp.gov.br",1234, "Matheus Takashi Inamine de Oliveira", "estudante", 11943255965);
+insert into APIetec values (null, 2101431, "deborah.nazareth@etec.sp.gov.br",1234, "Deborah Cristina Vieira Nazareth", "estudante", 11946639277);
+insert into APIetec values (null, 2101427, "pedro.souza403@etec.sp.gov.br",1234, "Pedro Luiz Santos de Souza", "estudante", 11947942365);
+insert into APIetec values (null, 2101721, "arthur.lacerda4@etec.sp.gov.br",1234, "Arthur Bezerra Lacerda", "estudante", 11959248500);
+insert into APIetec values (null, 2201705, "jessica.silva2039@etec.sp.gov.br",1234, "Jessica Nunes da Silva", "estudante", 11997659442);
+insert into APIetec values (null, 4002892, "alex.nascimento51@etec.sp.gov.br",1234, "Alex dos Santos Nascimento", "estudante", 11991798697);
+
+insert into chamado values (null, "A internet esta lenta, e frequentemente fica indo e voltando");
+insert into chamado values (null, "O computador não liga");
+insert into chamado values (null, "Meu pc está sem o cabo de internet");
+insert into chamado values (null, "A internet não está conectando");
+insert into chamado values (null, "Roubaram meu monitor");
+insert into chamado values (null, "O meu computador não me deixa baixar outros programas por não ter permissão");
+
+insert into APIetec values (null, 2101693, "matheus.oliveira933@etec.sp.gov.br",1234, "A internet esta lenta, e frequentemente fica indo e voltando", "3º DS", "em andamento");
+insert into APIetec values (null, 2101431, "deborah.nazareth@etec.sp.gov.br", "1234" , "O computador não liga", "3º DS", "finalizado");
+insert into APIetec values (null, 2101427, "pedro.souza403@etec.sp.gov.br",1234, "Meu pc está sem o cabo de internet", "3º DS", "em andamento");
+insert into APIetec values (null, 2101721, "arthur.lacerda4@etec.sp.gov.br",1234, "A internet não está conectando","3º DS", "em aberto");
+insert into APIetec values (null, 2201705, "jessica.silva2039@etec.sp.gov.br",1234, "Roubaram meu monitor", "3º DS", "em aberto");
+insert into APIetec values (null, 4002892, "alex.nascimento51@etec.sp.gov.br",1234, "O meu computador não me deixa baixar outros programas por não ter permissão", "3º DS", "em aberto");
+
+insert into qrcode values (null,2,20);
+
+select * from APIetec;
+
+drop table chamado;
