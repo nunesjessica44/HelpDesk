@@ -20,3 +20,7 @@ Route::get('/', function () {
     // return view('formularioChamado');
     // return view('usuarioLogado');
 });
+
+// Route::get('login', function () {
+//     return view('login');
+// });
