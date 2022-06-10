@@ -14,9 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-     return view('index');
+     //return view('index');
     // return view('admLogado');
     // return view('chamadoExpandido');
+    return view('/chamadoExpandido','ChamadoController@index');
     // return view('formularioChamado');
     // return view('usuarioLogado');
 });

@@ -12,18 +12,16 @@ create table APIetec(
     telefone varchar(12)
 );
 
-create table chamado (
-	idChamado int primary key auto_increment,
-    catChamados varchar(100)
-);
 
-create table formulario (
+create table chamado (
 	rm int primary key auto_increment,
     email varchar(50),
 	ocorrencias varchar(150) ,
     turma varchar(30),
     datahora DATETIME,
-    status varchar(40)
+    status varchar(40),
+    idChamado int primary key auto_increment,
+    catChamados varchar(100)
 );
 
 create table qrcode (
