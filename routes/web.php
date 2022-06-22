@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ChamadoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,11 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-     return view('index');
+    //Route::get('/chamadoExpandido', function () {
+    //return view('index');
     // return view('admLogado');
     // return view('chamadoExpandido');
+    //return view('/chamadoExpandido','ChamadoController@index');
+    //Route::controller('users', 'UserController');
     // return view('formularioChamado');
     // return view('usuarioLogado');
     // return view('exibir_chamado');
-});
+    //});
+
+Route::match(['get','post'],'/', [ChamadoController::class,'index'])->name('home');

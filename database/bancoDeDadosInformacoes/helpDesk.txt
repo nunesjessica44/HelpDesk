@@ -12,18 +12,16 @@ create table APIetec(
     telefone varchar(12)
 );
 
-create table chamado (
-	idChamado int primary key auto_increment,
-    catChamados varchar(100)
-);
 
-create table formulario (
-	rm int primary key auto_increment,
+create table chamado (
+	rm int,
     email varchar(50),
 	ocorrencias varchar(150) ,
     turma varchar(30),
     datahora DATETIME,
-    status varchar(40)
+    status varchar(40),
+    idChamado int primary key auto_increment,
+    catChamados varchar(100)
 );
 
 create table qrcode (
@@ -39,12 +37,7 @@ insert into APIetec values (null, 2101721, "arthur.lacerda4@etec.sp.gov.br",1234
 insert into APIetec values (null, 2201705, "jessica.silva2039@etec.sp.gov.br",1234, "Jessica Nunes da Silva", "estudante", 11997659442);
 insert into APIetec values (null, 4002892, "alex.nascimento51@etec.sp.gov.br",1234, "Alex dos Santos Nascimento", "estudante", 11991798697);
 
-insert into chamado values (null, "A internet esta lenta, e frequentemente fica indo e voltando");
-insert into chamado values (null, "O computador não liga");
-insert into chamado values (null, "Meu pc está sem o cabo de internet");
-insert into chamado values (null, "A internet não está conectando");
-insert into chamado values (null, "Roubaram meu monitor");
-insert into chamado values (null, "O meu computador não me deixa baixar outros programas por não ter permissão");
+insert into chamado values ("t779893","nunesjessica44@gmail.com", "A internet esta lenta, e frequentemente fica indo e voltando", "DS", '2007-05-08 12:35:29. 1234567 +12:15', "aberto", null, "internet");
 
 insert into APIetec values (null, 2101693, "matheus.oliveira933@etec.sp.gov.br",1234, "A internet esta lenta, e frequentemente fica indo e voltando", "3º DS", "em andamento");
 insert into APIetec values (null, 2101431, "deborah.nazareth@etec.sp.gov.br", "1234" , "O computador não liga", "3º DS", "finalizado");
