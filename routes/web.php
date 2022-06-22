@@ -19,4 +19,5 @@ Route::get('/', function () {
     // return view('chamadoExpandido');
     // return view('formularioChamado');
     // return view('usuarioLogado');
+    // return view('exibir_chamado');
 });
