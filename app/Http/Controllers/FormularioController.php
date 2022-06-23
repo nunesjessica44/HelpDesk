@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\ChamadoModel;
+use App\Models\FormularioModel;
 
-
-class ChamadoController extends Controller
+class FormularioController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +13,8 @@ class ChamadoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    { 
-        $chamados = ChamadoModel::all();
-        return view("chamadoExpandido", ['chamados' => $chamados]);
+    {
+        //
     }
 
     /**
@@ -35,9 +33,25 @@ class ChamadoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+
+    public function store(Request $request){
+        $dtHoje = new \DateTime();
+        //dd($request);
+
+        $chamado = new FormularioModel();
+
+        $chamado->rm = $request->rm;
+        $chamado->email = $request->email;
+        $chamado->ocorrencias = $request->ocorrencias;
+        $chamado->turma = $request->turma;
+        $chamado->datahora = $dtHoje->format("y-m-d H:i:s");
+        $chamado->status = "ABERTO";
+        $chamado->idChamado = null;
+        $chamado->catChamados = $request->catChamados;
+
+        $chamado->save();
+
+        return redirect()->route('home');
     }
 
     /**
