@@ -20,6 +20,7 @@
     <h1>Chamados</h1>
 
     <form action="chamado" method="get">
+        {{ csrf_field() }}
         <input type="submit" value="Novo chamado" class="btnCadastro">
     </form>
 
