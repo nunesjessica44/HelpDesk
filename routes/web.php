@@ -14,15 +14,41 @@ use App\Http\Controllers\ChamadoController;
 |
 */
 
-    //Route::get('/chamadoExpandido', function () {
-    //return view('index');
-    // return view('admLogado');
-    // return view('chamadoExpandido');
-    //return view('/chamadoExpandido','ChamadoController@index');
-    //Route::controller('users', 'UserController');
-    // return view('formularioChamado');
-    // return view('usuarioLogado');
-    // return view('exibir_chamado');
-    //});
-
 Route::match(['get','post'],'/', [ChamadoController::class,'index'])->name('home');
+Route::get('/', function () { return view('formularioChamado');
+Route::post('/contato/inserir','ContatoController@store');
+    
+});
+
+
+// //Método do Controller
+// public function store(Request $request)
+
+
+
+// {
+//     $contato = new ContatoModel();
+
+//     $contato->nome = $request->txNome;
+//     $contato->email = $request->txEmail;
+//     $contato->fone = $request->txFone;
+//     $contato->assunto = $request->txAssunto;
+//     $contato->mensagem = $request->txMensagem;
+
+//     $contato->save();
+
+// }
+
+// //Model
+
+//  public $table = "tbContato"; //nome da tabela a var deve ter o nome $table
+
+//  public $timestamps=false;
+
+//  protected $fillable = ['nome','email','fone','assunto','mensagem'];
+
+
+
+
+
+// // https://acervolima.com/laravel-protecao-csrf/#:~:text=Cross%2DSite%20Request%20Forgery%20(CSRF,CSRF%20%2C%20gerando%20um%20token%20CSRF%20.
