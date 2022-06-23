@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ChamadoController;
 use App\Http\Controllers\FormularioController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,13 +16,20 @@ use App\Http\Controllers\FormularioController;
 |
 */
 
-Route::match(['get','post'],'/', [ChamadoController::class,'index'])->name('home');
+//pagina principal
+Route::match(['get','post'],'/logado', [ChamadoController::class,'index'])->name('logado');
 
+//envio do chamado
 Route::get('/chamado', function () { return view('formularioChamado');})->name('formulario');
+Route::post('/enviarChamado',[FormularioController::class,'store'])->name('enviarChamado');
 
-Route::post('/enviarChamado',[FormularioController::class,'store']);
+//login do usuario
+Route::get('/', [LoginController::class,'index'])->name('login');
+Route::post('/logar', [LoginController::class,'store'])->name('logar');
 
-Route::get('login', function () { return view('login');});
+//deletar chamado
+Route::post('/deletarChamado/{id}',[FormularioController::class,'destroy']);
+
 
 
 

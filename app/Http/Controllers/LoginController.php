@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\FormularioModel;
 
-class FormularioController extends Controller
+class LoginController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +13,7 @@ class FormularioController extends Controller
      */
     public function index()
     {
-        //
+        return view('login');
     }
 
     /**
@@ -33,23 +32,9 @@ class FormularioController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-
-    public function store(Request $request){
-        $dtHoje = new \DateTime();
-
-        $chamado = new FormularioModel();
-
-        $chamado->rm = $request->rm;
-        $chamado->email = $request->email;
-        $chamado->ocorrencias = $request->ocorrencias;
-        $chamado->turma = $request->turma;
-        $chamado->datahora = $dtHoje->format("y-m-d H:i:s");
-        $chamado->status = "ABERTO";
-        $chamado->idChamado = null;
-        $chamado->catChamados = $request->catChamados;
-
-        $chamado->save();
-
+    public function store(Request $request)
+    {
+        //
         return redirect()->route('logado');
     }
 
@@ -93,18 +78,8 @@ class FormularioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request)
+    public function destroy($id)
     {
         //
-
-        $chamado = new FormularioModel();
-
-        $id = $request->id;
-
-        $chamado
-        ->where('idChamado',$id)
-        ->delete();
-
-        return redirect()->route('logado');
     }
 }

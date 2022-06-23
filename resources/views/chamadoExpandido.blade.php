@@ -11,13 +11,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,300;1,100&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-    <title>Chamado</title>
+    <title>Chamados</title>
     <link rel="icon" href="">
 
 </head>
 
 <body>
-    <h1>Chamado Expandido</h1>
+    <h1>Chamados</h1>
+
+    <form action="chamado" method="get">
+        <input type="submit" value="Novo chamado" class="btnCadastro">
+    </form>
 
     @foreach ($chamados as $c)
 
@@ -29,6 +33,11 @@
         echo "datahora ".$c->datahora . "<br />";  
        @endphp
 
+        <form action="deletarChamado/{{$c->idChamado}}" method="POST">
+            {{csrf_field()}}
+            <input type="text" value="teste" hidden>
+            <input type="submit" value="Deletar chamado" />
+        </form>
         
     @endforeach
 

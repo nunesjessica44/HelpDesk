@@ -28,7 +28,7 @@
     height: 55px;
 }
 
-.cadastrar{
+.logar{
     text-align: center;
 }
 
@@ -89,6 +89,8 @@ a{
     <div class="campos">
         <h1 class="login">Login</h1>
 
+      <form action="{{url('/logar')}}" method="post">
+        {{csrf_field()}}
         <div class="email">
             <input class="campoEmail" type="text" placeholder="E-mail">
         </div>
@@ -97,9 +99,10 @@ a{
             <input class="campoSenha" type="password" name="" id="" placeholder="Senha">
         </div>
 
-        <div class="cadastrar">
-            <input type="submit" value="Cadastrar" class="btnCadastro">
+        <div class="logar">
+            <input type="submit" value="Logar" class="btnCadastro">
         </div>
+      </form>
         
         <div class="link">
             <p>Esqueceu sua Senha? <a href="">Clique aqui.</p></a>
