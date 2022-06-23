@@ -21,6 +21,8 @@ Route::get('/chamado', function () { return view('formularioChamado');})->name('
 
 Route::post('/enviarChamado',[FormularioController::class,'store']);
 
+Route::get('login', function () { return view('login');});
+
 
 
 
